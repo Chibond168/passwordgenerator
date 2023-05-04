@@ -1,15 +1,15 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+var passwordText = document.querySelector("#password");
+
 // Collect the required types, and write password to the #password input
 function writePassword() {
 
   var lenmessage = validatelength();
   if (isNaN(lenmessage) == true)
   {
-    var passwordTextspace = document.querySelector("#password");
-      
-    passwordTextspace.value = " ";
+    passwordText.value = " ";
         
     alert(lenmessage);
   }
@@ -66,11 +66,48 @@ function writePassword() {
         }
              
         var password = generatePassword(lenmessage, parsechoices);
-
-        var passwordText = document.querySelector("#password");
       
         passwordText.value = password;
   }
+}
+
+// validate the length of password, at least 8 chanracters and not exceed 128 characters
+function validatelength()
+{
+  var usrinputpassword = null;
+  var mymsg = null;
+
+  usrinputpassword = prompt("Please enter length of the password (min 8 characters, max 128 characters)");
+  if ((usrinputpassword == null) || (usrinputpassword == ""))
+  {
+    mymsg = "Please enter a number";
+  }
+  else 
+  {
+    if ((usrinputpassword.includes(".")))
+    {
+      mymsg = "Please enter a whole number";
+    }
+    else
+    {
+      if (isNaN(usrinputpassword) == false)
+      {
+        if ((Number(usrinputpassword) < 8) || (Number(usrinputpassword) > 128))
+        {
+          mymsg = "Please enter a numeric value between 8 and 128";
+        }
+        else
+        {
+          mymsg = usrinputpassword;
+        }
+      }
+      else
+      {
+        mymsg = "Please enter a number";
+      }
+    }
+  }
+  return mymsg;
 }
 
 // Is lower case included?
@@ -101,47 +138,7 @@ function specialcharchoice() {
   return spchoice;
 }
 
-// validate the length of password, at least 8 chanracters and not exceed 128 characters
-function validatelength()
-{
-  var usrinputpassword = null;
-  var mymsg = null;
-
-  usrinputpassword = prompt("Please enter length of the password (min 8 characters, max 128 characters)");
-  if ((usrinputpassword == null) || (usrinputpassword == ""))
-  {
-    mymsg = "Please enter an integer number";
-  }
-  else 
-  {
-    if ((usrinputpassword.includes(".")))
-    {
-      mymsg = "Please enter an integer number";
-    }
-    else
-    {
-      if (isNaN(usrinputpassword) == false)
-      {
-        if ((Number(usrinputpassword) < 8) || (Number(usrinputpassword) > 128))
-        {
-          mymsg = "Please enter a numeric value between 8 and 128";
-        }
-        else
-        {
-          mymsg = usrinputpassword;
-        }
-      }
-      else
-      {
-        mymsg = "Please enter a number";
-      }
-    }
-  }
-  return mymsg;
-
-}
-
-// Populate word according to the required types and password length
+// Populate password according to the required types and password length
 function generatePassword(parlength, parchoices) {
   var counter = 0;
   var looplen = Number(parlength);
