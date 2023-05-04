@@ -23,7 +23,7 @@ function writePassword() {
     if ((islowercase == false) && (isuppercase == false) && 
         (isnumericcase == false) && (isspecialcharcase == false))
         {
-          alert("You have to answer yes to one of the characher types");
+          alert("You have to answer OK to one of the characher types");
         }
         else
         {
@@ -107,7 +107,7 @@ function validatelength()
   var usrinputpassword = null;
   var mymsg = null;
 
-  usrinputpassword = prompt("Please enter length of the password (min 8 characters, max 128 characters");
+  usrinputpassword = prompt("Please enter length of the password (min 8 characters, max 128 characters)");
   if ((usrinputpassword == null) || (usrinputpassword == ""))
   {
     mymsg = "Please enter an integer number";
@@ -133,7 +133,7 @@ function validatelength()
       }
       else
       {
-        mymsg = "Please enter an integer number";
+        mymsg = "Please enter a number";
       }
     }
   }
@@ -149,6 +149,7 @@ function generatePassword(parlength, parchoices) {
   var firstselected = false;
   var lconly = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var uconly = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  // In some cases, the random function does not pick up number due to the number population.  Duplicated the number to increase the change that function will pick it up.
   var numonly = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
   var speccharonly = ["!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "}", "|", "~", " "]; 
   var mergedarr;
