@@ -34,6 +34,9 @@ Use Array to hold 0-9 numeric numbers
 Use Randam function to populate the randam passowrd - Math.floor(Math.random() * array.length)
 
 During the testing, the developer found out the randam function does not pick the number in some cases.  The developer decided to add another set of 0-9 number in the array.  It increases the number population. 
+
+Web Site url - https://chibond168.github.io/passwordgenerator/
+
 ![main](https://user-images.githubusercontent.com/130376566/236293079-91e74e59-ae30-4a58-b508-afacde97acd1.jpg)
 ![passwordinput](https://user-images.githubusercontent.com/130376566/236293108-ef920ba2-8374-47b3-a128-12e4f43903e7.jpg)
 ![passworderror1](https://user-images.githubusercontent.com/130376566/236293165-0998253b-b7b7-41a4-b837-d6fcb6e6a7b0.jpg)
